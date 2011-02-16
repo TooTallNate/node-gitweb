@@ -2,6 +2,7 @@
  * A NodeJS wrapper for the official GitWeb CGI script.
  */
 var url = require('url');
+var path = require('path');
 
 module.exports = function gitweb(mountPoint, config) {
   if (typeof mountPoint !== 'string' || mountPoint[mountPoint.length-1] !== '/') {
@@ -21,7 +22,9 @@ module.exports = function gitweb(mountPoint, config) {
 
   return function gitweb(req, res, next) {
     if (!req.hasOwnProperty("uri")) { req.uri = url.parse(req.url); }
-    if (req.uri.pathname !== mountPoint) return next();
+    var pathDir = path.dirname(req.uri.pathname);
+    if (pathDir[pathDir.length-1] !== '/') pathDir += '/';
+    if (pathDir !== mountPoint) return next();
 
     return handler.call(this, req, res);
   }
