@@ -15,7 +15,8 @@ module.exports = function gitweb(mountPoint, config) {
     require('creationix/static')(mountPoint, __dirname + '/static'),
     require('cgi')(__dirname + '/gitweb.cgi', {
       env: {
-        GITWEB_CONFIG: __dirname + '/gitweb_config.perl'
+        // Config File path is relative to the 'gitweb.cgi' file.
+        GITWEB_CONFIG: 'gitweb_config.perl'
       }
     })
   );
