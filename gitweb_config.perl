@@ -14,7 +14,7 @@
 # First, extend PATH for any locally compiled Git binaries
 $ENV{'PATH'} .= ":" . glob('~/bin');
 
-our $GIT = $ENV{'GIT_BIN'} || `which git`;
+our $GIT = $ENV{'NODE_GITWEB_GIT_BIN'} || `which git`;
 
 
 
@@ -26,7 +26,7 @@ our $GIT = $ENV{'GIT_BIN'} || `which git`;
 # root path for entries in $projects_list. Using glob() allows for tilde-
 # expansion, if you need to hard-code a full path, just use a quoted string.
 
-our $projectroot = glob('~');
+our $projectroot = $ENV{'NODE_GITWEB_PROJECTROOT'};
 
 
 
@@ -43,7 +43,7 @@ our $projectroot = glob('~');
 # file is just a list of repositories, one per line formatted as:
 # [path_to_repository] [owner]
 
-our $projects_list = $ENV{'GITWEB_PROJECTSLIST'} || "";
+our $projects_list = $ENV{'NODE_GITWEB_PROJECTSLIST'} || "";
 
 
 
@@ -71,10 +71,10 @@ our $projects_list = $ENV{'GITWEB_PROJECTSLIST'} || "";
 # CSS files display in array order, so customizations can be added easily 
 # without having to modify any core files.
 
-our @stylesheets = ( $ENV{'GITWEB_STYLESHEET'} || "gitweb.css");
-our $logo = $ENV{'GITWEB_LOGO'} || "git-logo.png";
-our $favicon = $ENV{'GITWEB_FAVICON'} || "git-favicon.png";
-our $javascript = $ENV{'GITWEB_JAVASCRIPT'} || "gitweb.js";
+our @stylesheets = ( $ENV{'NODE_GITWEB_STYLESHEET_PATH'} || "gitweb.css");
+our $logo = $ENV{'NODE_GITWEB_LOGO_PATH'} || "git-logo.png";
+our $favicon = $ENV{'NODE_GITWEB_FAVICON_PATH'} || "git-favicon.png";
+our $javascript = $ENV{'NODE_GITWEB_JAVASCRIPT_PATH'} || "gitweb.js";
 
 
 
@@ -82,9 +82,8 @@ our $javascript = $ENV{'GITWEB_JAVASCRIPT'} || "gitweb.js";
 #   String of the home link on top of all pages, leading to $home_link
 #   (usually main gitweb page, which means projects list).  Used as first
 #   part of gitweb view "breadcrumb trail": <home> / <project> / <view>.
-#   [Default: projects]
 
-our $home_link_str = $ENV{'GITWEB_HOMELINK'} || "projects";
+our $home_link_str = $ENV{'NODE_GITWEB_HOMELINK'};
 
 
 
@@ -98,7 +97,7 @@ our $home_link_str = $ENV{'GITWEB_HOMELINK'} || "projects";
 #   SERVER_NAME CGI environment variable is not set (e.g. if running
 #   gitweb as standalone script).  [No default]
 
-our $site_name = $ENV{'GITWEB_SITENAME'} || "Gitweb";
+our $site_name = $ENV{'NODE_GITWEB_SITENAME'};
 
 
 
@@ -134,7 +133,7 @@ our $site_footer = "site_footer.html";
 # The version number is inserted into an HTML comment and meta tag at the top
 # of every Gitweb page.
 
-our $version = "1.6.6";
+our $version = $ENV{'NODE_GITWEB_VERSION'};
 
 
 
@@ -204,23 +203,9 @@ our @git_base_url_list = ("");
 
 
 
-
-
-# * Clean up
-#   Tweaking a few values for a more general-purpose configuration file.
-# 
-# 
 # If Git's path was automatically detected, $GIT will have a trailing newline
 # which needs to be removed. Chomp() is down here so as not to clutter up the
 # rest of the script. Processing cost is negligent, it's probably not woth the 
 # trouble of commenting this out.
 
 chomp($GIT);
-
-
-# This configuration will default to scanning for repositories if the 
-# $projects_list file doesn't exist.
-
-our $projects_list = "" if (!-e $projects_list);
-
-
