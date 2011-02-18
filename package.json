@@ -1,10 +1,10 @@
 {
   "name": "gitweb",
   "description": "Directly invoke and serve GitWeb through NodeJS.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TooTallNate/node-gitweb"
+    "url": "git://github.com/TooTallNate/node-gitweb.git"
   },
   "author": "Nathan Rajlich <nathan@tootallnate.net> (http://tootallnate.net)",
   "main": "./gitweb",
@@ -14,5 +14,9 @@
   },
   "engines": {
     "node": ">= 0.4.0"
-  }
+  },
+  "directories": {},
+  "files": [
+    ""
+  ]
 }
