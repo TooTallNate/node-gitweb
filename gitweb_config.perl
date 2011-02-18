@@ -141,7 +141,42 @@ our $version = $ENV{'NODE_GITWEB_VERSION'};
 # snapshot from a particular commit can just clone the repository and checkout
 # whatever specific revision they want. From line 263, disable snapshot links:
 
-$feature{'snapshot'}{'default'} = [];
+$feature{'snapshot'}{'default'} = [ $ENV{'NODE_GITWEB_SNAPSHOT_DEFAULT'} ];
+
+
+
+# Avatar support. When this feature is enabled, views such as
+# shortlog or commit will display an avatar associated with
+# the email of the committer(s) and/or author(s).
+  
+# Currently available providers are gravatar and picon.
+# If an unknown provider is specified, the feature is disabled.
+
+# Gravatar depends on Digest::MD5.
+# Picon currently relies on the indiana.edu database.
+
+# To enable system wide have in $GITWEB_CONFIG
+# $feature{'avatar'}{'default'} = ['<provider>'];
+# where <provider> is either gravatar or picon.
+# To have project specific config enable override in $GITWEB_CONFIG
+# $feature{'avatar'}{'override'} = 1;
+# and in project config gitweb.avatar = <provider>;
+
+
+$feature{'avatar'}{'override'} = $ENV{'NODE_GITWEB_AVATAR_OVERRIDE'};
+$feature{'avatar'}{'default'} = [ $ENV{'NODE_GITWEB_AVATAR_DEFAULT'} ];
+
+
+
+
+
+# Enable displaying how much time and how many git commands
+# it took to generate and display page.  Disabled by default.   
+# Project specific override is not supported.
+
+$feature{'timed'}{'default'} = [ $ENV{'NODE_GITWEB_TIMED'} ];
+
+
 
 
 

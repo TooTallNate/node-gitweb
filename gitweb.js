@@ -49,5 +49,10 @@ gitweb.DEFAULTS = {
   homelink: "My Projects",
   sitename: "GitWeb powered by Node",
   version: "1.7.1",
-  max_depth: "100"
+  max_depth: "100",
+
+  avatar_default: 'gravatar',
+  avatar_override: 0,
+
+  timed: 1
 };
