@@ -23,7 +23,8 @@ function gitweb(mountPoint, config) {
     env['NODE_GITWEB_'+prop.toUpperCase()] = config[prop];
   }
 
-  var handler = require('stack')(
+  // Return a "handler" function, created from 'stack'
+  return require('stack')(
     require('creationix/static')(mountPoint, __dirname + '/static'),
     require('cgi')(__dirname + '/gitweb.cgi', {
       mountPoint: mountPoint,
@@ -31,15 +32,6 @@ function gitweb(mountPoint, config) {
       stderr: process.stderr
     })
   );
-
-  return function gitweb_handler(req, res, next) {
-    if (!req.hasOwnProperty("uri")) { req.uri = url.parse(req.url); }
-    var pathDir = path.dirname(req.uri.pathname);
-    if (pathDir[pathDir.length-1] !== '/') pathDir += '/';
-    if (pathDir !== mountPoint) return next();
-
-    return handler.call(this, req, res);
-  }
 }
 module.exports = gitweb;
 
@@ -50,6 +42,8 @@ gitweb.DEFAULTS = {
   sitename: "GitWeb powered by Node",
   version: "1.7.1",
   max_depth: "100",
+
+  pathinfo: 1,
 
   avatar_default: 'gravatar',
   avatar_override: 0,

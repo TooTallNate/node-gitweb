@@ -137,11 +137,34 @@ our $version = $ENV{'NODE_GITWEB_VERSION'};
 
 
 
+
+
+# Make gitweb use an alternative format of the URLs which can be
+# more readable and natural-looking: project name is embedded
+# directly in the path and the query string contains other
+# auxiliary information. All gitweb installations recognize
+# URL in either format; this configures in which formats gitweb
+# generates links.
+
+# To enable system wide have in $GITWEB_CONFIG
+# $feature{'pathinfo'}{'default'} = [1];
+# Project specific override is not supported.
+
+# Note that you will need to change the default location of CSS,
+# favicon, logo and possibly other files to an absolute URL. Also,
+# if gitweb.cgi serves as your indexfile, you will need to force
+# $my_uri to contain the script name in your $GITWEB_CONFIG.
+
+$feature{'pathinfo'}{'default'} = [ $ENV{'NODE_GITWEB_PATHINFO'} ];
+
+
+
+
 # Snapshot links seem largely unncessary. In most cases, anyone who needs a
 # snapshot from a particular commit can just clone the repository and checkout
 # whatever specific revision they want. From line 263, disable snapshot links:
 
-$feature{'snapshot'}{'default'} = [ $ENV{'NODE_GITWEB_SNAPSHOT_DEFAULT'} ];
+$feature{'snapshot'}{'default'} = [];
 
 
 
