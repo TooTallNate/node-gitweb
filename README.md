@@ -16,8 +16,11 @@ Example
 
 That's a very simple example.
 
-It's recommended to pass a second argument, a `config` Object, that
-can take the following parameters:
+The first argument is the `mountPoint`. This is the HTTP url in which
+GitWeb will be served from. It MUST start and end with a `/` slash character.
+
+It's recommended to also pass a second argument, a `config` Object,
+that can take the following parameters:
 
   * __projectroot__ - The root directory where git repos will be listed from. Default: `process.env.HOME`.
   * __max_depth__ - The number of directories deep from _projectroot_ that GitWeb should look for git repos. Default: `100`.
