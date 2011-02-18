@@ -27,7 +27,8 @@ function gitweb(mountPoint, config) {
     require('creationix/static')(mountPoint, __dirname + '/static'),
     require('cgi')(__dirname + '/gitweb.cgi', {
       mountPoint: mountPoint,
-      env: env
+      env: env,
+      stderr: process.stderr
     })
   );
 
@@ -46,6 +47,7 @@ module.exports = gitweb;
 gitweb.DEFAULTS = {
   projectroot: process.env.HOME,
   homelink: "My Projects",
-  sitename: "GitWeb powered by Node",  
-  version: "1.7.1"
+  sitename: "GitWeb powered by Node",
+  version: "1.7.1",
+  max_depth: "100"
 };

@@ -7,7 +7,9 @@ require('http').createServer(
     // it's necessary static files are served from.
     require('./gitweb')('/', {
 
-      projectroot: process.env.HOME + '/repos'
+      projectroot: process.env.HOME,
+
+      max_depth: 2
 
     })
   )

@@ -161,7 +161,7 @@ our $projects_list_description_width = 45;
 #   Is is meant to speed up project listing on large work trees by limiting
 #   search depth.  [Default: 2007]
 
-our $project_maxdepth = 1000;
+our $project_maxdepth = int($ENV{'NODE_GITWEB_MAX_DEPTH'});
 
 
 
