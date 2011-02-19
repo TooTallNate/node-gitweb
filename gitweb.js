@@ -14,7 +14,8 @@ function gitweb(mountPoint, config) {
 
   // The Environment configuration for the 'gitweb' CGI spawn
   var env = {
-    // Config File path is relative to the CWD!?
+    // The Config File just reads all of it's configuration
+    // from environment variables that are set below
     GITWEB_CONFIG_SYSTEM: __dirname + '/gitweb_config.perl'
   };
 
