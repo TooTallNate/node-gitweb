@@ -9,8 +9,11 @@
   "author": "Nathan Rajlich <nathan@tootallnate.net> (http://tootallnate.net)",
   "main": "./gitweb",
   "dependencies": {
-    "cgi": "*",
-    "creationix": "*"
+    "cgi": "*"
+  },
+  "devDependencies": {
+    "creationix": "*",
+    "stack": "*"
   },
   "engines": {
     "node": ">= 0.4.0"
