@@ -39,7 +39,9 @@ module.exports = gitweb;
 // The default 'config' options to use.
 gitweb.DEFAULTS = {
   projectroot: process.env.HOME,
-  homelink: "My Projects",
+  get homelink() {
+    return this.projectroot;
+  },
   sitename: "GitWeb powered by Node",
   version: "1.7.1",
   max_depth: "100",
