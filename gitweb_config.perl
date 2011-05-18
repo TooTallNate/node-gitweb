@@ -164,8 +164,11 @@ $feature{'pathinfo'}{'default'} = [ $ENV{'NODE_GITWEB_PATHINFO'} ];
 # snapshot from a particular commit can just clone the repository and checkout
 # whatever specific revision they want. From line 263, disable snapshot links:
 
-$feature{'snapshot'}{'default'} = [ $ENV{'NODE_GITWEB_SNAPSHOT_DEFAULT'} ];
-
+if ($ENV{'NODE_GITWEB_SNAPSHOT_DEFAULT'}) {
+  $feature{'snapshot'}{'default'} = [ $ENV{'NODE_GITWEB_SNAPSHOT_DEFAULT'} ];
+} else {
+  $feature{'snapshot'}{'default'} = [ ];
+}
 
 
 # Avatar support. When this feature is enabled, views such as
