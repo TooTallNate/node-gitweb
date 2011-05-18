@@ -13,4 +13,6 @@ require('http').createServer(
 
     })
   )
-).listen(3000);
+).listen(3000, function() {
+  console.log("GitWeb powered by node!\nHTTP server running on port: %d", this.address().port);
+});
