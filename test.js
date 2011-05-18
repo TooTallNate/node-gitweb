@@ -9,6 +9,8 @@ require('http').createServer(
 
       projectroot: process.env.HOME,
 
+      homelink: process.env.HOME,
+
       max_depth: 2
 
     })
