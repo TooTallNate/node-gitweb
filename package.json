@@ -10,7 +10,7 @@
   "main": "./gitweb",
   "dependencies": {
     "cgi": "0.0.x",
-    "creationix": "0.1.x",
+    "creationix": "0.2.x",
     "stack": "0.0.x"
   },
   "engines": {
