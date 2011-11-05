@@ -10,10 +10,12 @@ This module uses [node-cgi][] to invoke the `gitweb.cgi` perl file.
 Example
 -------
 
-    var http = require('http');
-    var gitweb = require('gitweb');
+``` js
+var http = require('http');
+var gitweb = require('gitweb');
 
-    http.createServer( gitweb('/') ).listen(80);
+http.createServer( gitweb('/') ).listen(80);
+```
 
 That's a very simple example.
 
