@@ -5,7 +5,7 @@ node-gitweb
 
 This module uses [node-cgi][] to invoke the `gitweb.cgi` perl file.
 
-![](http://f.cl.ly/items/3v2y1P3m282w1w0N2V0r/Image%202011.11.04%208:30:34%20PM.png)
+![](http://f.cl.ly/items/3a1U2x1905253c2w0Z1y/Screen%20Shot%202012-01-29%20at%202.13.04%20PM.png)
 
 Example
 -------
