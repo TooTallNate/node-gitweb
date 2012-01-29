@@ -43,7 +43,7 @@ gitweb.DEFAULTS = {
     return this.projectroot;
   },
   sitename: "GitWeb powered by Node",
-  version: "1.7.1",
+  version: "1.7.9",
   max_depth: "100",
 
   pathinfo: 1,
