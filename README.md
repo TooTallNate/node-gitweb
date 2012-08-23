@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/TooTallNate/node-gitweb.png)](http://travis-ci.org/TooTallNate/node-gitweb)
 node-gitweb
 ===========
 ### Directly invoke and serve [GitWeb][] through [NodeJS][Node].
