@@ -26,7 +26,7 @@ function gitweb(mountPoint, config) {
 
   // Return a "handler" function, created from 'stack'
   return require('stack')(
-    require('creationix/static')(mountPoint, __dirname + '/static'),
+    require('creationix/static')(mountPoint, path.join(__dirname , config.theme)),
     require('cgi')(__dirname + '/gitweb.cgi', {
       mountPoint: mountPoint,
       env: env,
@@ -51,5 +51,6 @@ gitweb.DEFAULTS = {
   avatar_default: 'gravatar',
   avatar_override: 0,
 
-  timed: 1
+  timed: 1,
+  theme: 'static'
 };
