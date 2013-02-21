@@ -9,7 +9,7 @@
   "author": "Nathan Rajlich <nathan@tootallnate.net> (http://tootallnate.net)",
   "main": "./gitweb",
   "dependencies": {
-    "cgi": "0.0.x",
+    "cgi": "0",
     "creationix": "0.2.x",
     "stack": "0.0.x"
   },
