@@ -1,3 +1,6 @@
 [submodule "git"]
 	path = git
 	url = git://git.kernel.org/pub/scm/git/git.git
+[submodule "kogakure-gitweb-theme"]
+	path = kogakure-gitweb-theme
+	url = git://github.com/kogakure/gitweb-theme.git

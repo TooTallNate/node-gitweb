@@ -31,7 +31,7 @@ that can take the following parameters:
   * __version__ - The version value of the internally used `gitweb.cgi` file. This can really just be any arbitrary String. Default: `1.7.1`.
   * __max_depth__ - The number of directories deep from _projectroot_ that GitWeb should look for git repos. Default: `100`.
   * __snapshot_default__ - The "snapshot" links are _off_ by default. If you would like to re-enable them, set this value to something like `tgz` or `zip`.
-
+  * __theme__ - Shipped with two themes. `static`(default gitweb theme) and [`kogakure-gitweb-theme`](https://github.com/kogakure/gitweb-theme). Default: `static`.
 
 [Node]: http://nodejs.org
 [node-cgi]: https://github.com/TooTallNate/node-cgi
